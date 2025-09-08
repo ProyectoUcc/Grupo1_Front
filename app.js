@@ -1,5 +1,8 @@
 const apiKey = "oM2HH2Aji7TzyCH7kRm8aRBgiLoz3URG";
-const urlAPI = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&countryCode=CO&size=50`;
+
+// Endpoints para Colombia y México
+const urlColombia = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&countryCode=CO&size=50`;
+const urlMexico   = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&countryCode=MX&size=50`;
 
 let selectedEvent = null;
 let purchases = JSON.parse(localStorage.getItem("purchases")) || [];
@@ -7,11 +10,25 @@ let purchases = JSON.parse(localStorage.getItem("purchases")) || [];
 // 🎶 Obtener y mostrar conciertos
 async function getConcerts(query = "") {
   try {
-    const res = await fetch(urlAPI);
-    if (!res.ok) throw new Error(res.status);
-    const data = await res.json();
-    const events = data._embedded?.events || [];
+    const [resCO, resMX] = await Promise.all([fetch(urlColombia), fetch(urlMexico)]);
+    const dataCO = await resCO.json();
+    const dataMX = await resMX.json();
 
+    // Unimos resultados
+    let events = [
+      ...(dataCO._embedded?.events || []),
+      ...(dataMX._embedded?.events || [])
+    ];
+
+    // 🔄 Filtrar duplicados por ID
+    const seen = new Set();
+    events = events.filter(ev => {
+      if (seen.has(ev.id)) return false;
+      seen.add(ev.id);
+      return true;
+    });
+
+    // 🔍 Filtrar por búsqueda
     const filtered = events.filter(ev =>
       ev.name.toLowerCase().includes(query.toLowerCase()) ||
       ev._embedded.venues[0].city.name.toLowerCase().includes(query.toLowerCase())
@@ -41,7 +58,7 @@ function renderEvents(events, query) {
           <div class="card-body">
             <h5 class="card-title text-primary">${ev.name}</h5>
             <p class="card-text">
-              📍 ${ev._embedded.venues[0].name}, ${ev._embedded.venues[0].city.name} <br>
+              📍 ${ev._embedded.venues[0].name}, ${ev._embedded.venues[0].city.name}, ${ev._embedded.venues[0].country.name} <br>
               📅 ${ev.dates.start.localDate}
             </p>
             <button class="btn btn-warning text-dark" onclick='openModal(${JSON.stringify(ev)})'>Comprar</button>
