@@ -4,18 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tiketera de Conciertos</title>
-
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Animaciones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-  <!-- Tus estilos -->
-  <link rel="stylesheet" href="estilos.css">
-
-  <!-- Librerías -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0d6efd, #6610f2);
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .card {
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  </style>
 </head>
 <body>
 
@@ -33,7 +39,7 @@
 
   <!-- Catálogo -->
   <div class="container py-5">
-    <h1 class="text-center mb-4">🎶 Conciertos en Colombia</h1>
+    <h1 class="text-center mb-4">CONCIERTOS DE COLOMBIA</h1>
     <div class="row" id="container"></div>
   </div>
 
@@ -43,7 +49,7 @@
       <div class="modal-content text-dark">
         <div class="modal-header bg-primary text-white">
           <h5 class="modal-title">Comprar Boletas</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modax"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
           <h5 id="eventName"></h5>
@@ -59,15 +65,25 @@
     </div>
   </div>
 
+  <input type="text" id="searchInput" class="form-control mb-4" placeholder="🔎 Buscar por evento o ciudad...">
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
   <!-- Historial -->
   <div class="container my-5">
     <h2 class="text-warning">📜 Historial de Compras</h2>
     <div id="purchaseHistory" class="row mt-3"></div>
   </div>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script src="app.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
