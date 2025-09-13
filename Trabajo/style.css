@@ -1,0 +1,70 @@
+/* Ajustes generales */
+body { background: #fff; }
+
+/* Carrusel */
+.img-carrusel {
+  height: 420px;
+  object-fit: cover;
+}
+.borde-suave { border-radius: 8px; }
+.sombra-suave { box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+
+/* Cartas */
+.carta { border: 1px solid #eaeaea; }
+.img-carta {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+/* Hover suave para cartas */
+.carta{
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.carta:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  border-color: #dce1ef;
+}
+.img-carta{
+  transition: transform .3s ease;
+}
+.carta:hover .img-carta{
+  transform: scale(1.03);
+}
+
+/* Sección contacto (solo información) */
+.seccion-contacto{
+  background: #f6f8fc;
+}
+.texto-suave{ color: #5b6472; }
+.tarjeta-info{
+  background: #fff;
+  border: 1px solid #e9eef5;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(16,24,40,.06);
+}
+
+/* Lista simple de correos */
+.lista-contacto{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.lista-contacto li{
+  padding: .6rem 0;
+  border-bottom: 1px dashed #e2e8f0;
+}
+.lista-contacto li:last-child{
+  border-bottom: none;
+}
+
+/* Nota */
+.notita{
+  background: #f1f5ff;
+  color: #3b4cca;
+  padding: .5rem .75rem;
+  border-radius: 8px;
+  border: 1px solid #dee7ff;
+}
