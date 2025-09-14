@@ -1,5 +1,9 @@
 /* Ajustes generales */
-body { background: #fff; }
+body {
+  background: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #212529;
+}
 
 /* Carrusel */
 .img-carrusel {
@@ -8,6 +12,19 @@ body { background: #fff; }
 }
 .borde-suave { border-radius: 8px; }
 .sombra-suave { box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  padding: 1rem;
+  bottom: 1.25rem;
+}
+.carousel-caption h5 {
+  color: #fff;
+  font-weight: bold;
+}
+.carousel-caption p {
+  color: #f8f9fa;
+}
 
 /* Cartas */
 .carta { border: 1px solid #eaeaea; }
@@ -36,7 +53,7 @@ body { background: #fff; }
 
 /* Sección contacto (solo información) */
 .seccion-contacto{
-  background: #f6f8fc;
+  background: linear-gradient(135deg, #f6f8fc 0%, #e9ecef 100%);
 }
 .texto-suave{ color: #5b6472; }
 .tarjeta-info{
@@ -58,6 +75,10 @@ body { background: #fff; }
 }
 .lista-contacto li:last-child{
   border-bottom: none;
+}
+.lista-contacto i {
+  color: #007bff;
+  margin-right: 0.5rem;
 }
 
 /* Nota */
