@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => { // Asegura DOM listo
   try {
     // API de Ticketmaster para eventos en México
     const apiKey = "oM2HH2Aji7TzyCH7kRm8aRBgiLoz3URG"; // tu Consumer Key
-    const urlMexico = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&countryCode=MX&size=10`;
+    const urlMexico = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&countryCode=MX&classificationName=music&size=10`;
 
     const response = await fetch(urlMexico);
     if (!response.ok) {
