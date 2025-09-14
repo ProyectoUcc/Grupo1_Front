@@ -9,8 +9,11 @@ body {
 
 /* Carrusel */
 .img-carrusel {
-  height: 420px;
-  object-fit: cover;
+  max-width: 60%;         
+  max-height: 500px;       
+  margin: 0 auto;          
+  display: block;          
+  object-fit: contain;     
 }
 .borde-suave { border-radius: 8px; }
 .sombra-suave { box-shadow: 0 8px 20px rgba(0,0,0,.08); }
