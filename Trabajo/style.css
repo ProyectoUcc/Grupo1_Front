@@ -9,12 +9,15 @@ body {
 
 /* Carrusel */
 .img-carrusel {
-  max-width: 60%;         
-  max-height: 500px;       
-  margin: 0 auto;          
-  display: block;          
-  object-fit: contain;     
+  width: 100%;
+  height: 500px;
+  object-fit: contain;      /* 🔹 muestra toda la imagen */
+  object-position: center;  /* 🔹 la centra dentro del espacio */
+  background-color: #000;   /* opcional: fondo para los espacios vacíos */
+  display: block;
 }
+
+
 .borde-suave { border-radius: 8px; }
 .sombra-suave { box-shadow: 0 8px 20px rgba(0,0,0,.08); }
 .carousel-caption {
@@ -24,11 +27,11 @@ body {
   bottom: 1.25rem;
 }
 .carousel-caption h5 {
-  color: #fff;
+  color: #ffffff00;
   font-weight: bold;
 }
 .carousel-caption p {
-  color: #f8f9fa;
+  color: #f8f9fa00;
 }
 
 /* Cartas */
@@ -54,6 +57,15 @@ body {
 }
 .carta:hover .img-carta{
   transform: scale(1.03);
+}
+
+.carta .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.boton-carta {
+  margin-top: auto;
 }
 
 /* Sección contacto (solo información) */
