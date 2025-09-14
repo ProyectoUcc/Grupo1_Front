@@ -59,6 +59,15 @@ body {
   transform: scale(1.03);
 }
 
+.carta .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.boton-carta {
+  margin-top: auto;
+}
+
 /* Sección contacto (solo información) */
 .seccion-contacto{
   background: linear-gradient(135deg, #f6f8fc 0%, #e9ecef 100%);
