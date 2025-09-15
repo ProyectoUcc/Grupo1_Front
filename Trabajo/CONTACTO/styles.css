@@ -299,3 +299,5 @@ body{
         font-size: 1rem;
     }
 }
+
+html { scroll-behavior: smooth; }
