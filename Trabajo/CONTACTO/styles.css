@@ -6,7 +6,7 @@
 
 body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-  background-image: url('/Grupo1_Front/Trabajo/Imagen/Callcenter.webp');
+  background-image: url('../Imagen/Callcenter.webp');
   background-repeat: no-repeat;
   background-size: cover;
  background-position: center; 
