@@ -1,6 +1,6 @@
-// app.js — genera N cartas desde API pública de Ticketmaster y hace logs para diagnóstico
-document.addEventListener('DOMContentLoaded', async () => { // Asegura DOM listo
-  console.log('[app] DOM listo'); // Diagnóstico [ver consola]
+
+document.addEventListener('DOMContentLoaded', async () => { 
+  console.log('[app] DOM listo'); 
   const contenedor = document.getElementById('container');
 
   if (!contenedor) {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => { // Asegura DOM listo
   }
 
   try {
-    // API de Ticketmaster para eventos en México
+ 
     const apiKey = "oM2HH2Aji7TzyCH7kRm8aRBgiLoz3URG"; // tu Consumer Key
     const urlMexico = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}&countryCode=MX&classificationName=music&size=10`;
 
@@ -19,12 +19,12 @@ document.addEventListener('DOMContentLoaded', async () => { // Asegura DOM listo
     }
     const data = await response.json();
 
-    // Verificar si hay eventos
+    
     if (!data._embedded || !data._embedded.events) {
       throw new Error('No se encontraron eventos en la API.');
     }
 
-    // Transformar datos de la API a formato de cartas
+    
     const datos = data._embedded.events.map(event => ({
       titulo: event.name,
       texto: (event.description || event.info || 'Descripción no disponible.').substring(0, 150) + ((event.description || event.info || '').length > 150 ? '...' : ''),
@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', async () => { // Asegura DOM listo
       enlace: event.url
     }));
 
-    // Filtrar eventos duplicados por título
+    
     const uniqueDatos = datos.filter((event, index, self) => self.findIndex(e => e.titulo === event.titulo) === index);
 
-    // Excluir eventos de "Monster Jam"
+   
     const filteredDatos = uniqueDatos.filter(event => !event.titulo.toLowerCase().includes('monster jam'));
 
     contenedor.innerHTML = '';
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => { // Asegura DOM listo
       contenedor.appendChild(columna);
     });
 
-    // Actualizar imágenes del carrusel con imágenes de eventos
+  
     const carouselImgs = document.querySelectorAll('.img-carrusel');
     for (let i = 0; i < Math.min(carouselImgs.length, filteredDatos.length); i++) {
       carouselImgs[i].src = filteredDatos[i].imagen;
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', async () => { // Asegura DOM listo
     console.log('[app] Cartas renderizadas desde API de Ticketmaster:', filteredDatos.length, '(filtradas de', datos.length, 'totales)');
   } catch (e) {
     console.error('[app] Error obteniendo o renderizando cartas:', e);
-    // Fallback a datos de ejemplo si falla la API
+ 
     const datosFallback = [
       { titulo: 'Error al cargar', texto: 'No se pudo conectar a la API de Ticketmaster. Revisa la consola.', imagen: 'https://picsum.photos/600/360?random=999', enlace: '#' }
     ];
