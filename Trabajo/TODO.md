@@ -1,6 +1,0 @@
-- [x] Actualizar imágenes del carrusel en index.html a unas más profesionales y formales
-- [x] Agregar texto de héroe sobre el carrusel para un look más impactante
-- [x] Cambiar colores de la navbar a azul corporativo
-- [x] Mejorar sección de contacto con íconos y diseño más formal
-- [x] Actualizar style.css con esquema de colores formal (azules, grises), mejor tipografía y estilos
-- [ ] Probar la página abriéndola en el navegador
